@@ -1,0 +1,30 @@
+rvm --version
+
+If it's unrecognized, install RVM:
+
+$ curl -L get.rvm.io | bash -s stable
+$ source ~/.bash_profile
+
+If RVM is installed, continue here:
+
+git clone git@github.com:irjamby/Personal-Website.git jareds_website
+cd jareds_website
+==============================================================================
+= NOTICE                                                                     =
+==============================================================================
+= RVM has encountered a new or modified .rvmrc file in the current directory =
+= This is a shell script and therefore may contain any shell commands.       =
+=                                                                            =
+= Examine the contents of this file carefully to be sure the contents are    =
+= safe before trusting it! ( Choose v[iew] below to view the contents )      =
+==============================================================================
+Do you wish to trust this .rvmrc file?
+y[es], n[o], v[iew]> y
+
+$ gem install bundler
+$ bundle install
+$ rackup
+
+In Browser
+
+  http://localhost:9292/
