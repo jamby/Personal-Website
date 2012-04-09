@@ -45,3 +45,11 @@ To deploy changes, push your changes up to git. Then do:
 
     $ git push heroku master
     .... Long ass deploy stuff
+
+Adding your domain names:
+
+    http://joshkim.org/2010/03/15/custom-domain-names-on-heroku-via-namecheap/
+
+All you have to do is follow the heroku setup in this:
+
+    https://devcenter.heroku.com/articles/custom-domains
