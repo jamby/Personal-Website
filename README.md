@@ -32,3 +32,16 @@ If RVM is installed, continue here:
 In Browser
 
     http://localhost:9292/
+
+To create your website on heroku:
+
+    $ heroku create jaredhamby
+    Created http://jaredhamby.heroku.com/ | git@heroku.com:jaredhamby.git
+    Git remote heroku added
+    $ git push heroku master
+    .... Long ass deploy stuff
+
+To deploy changes, push your changes up to git. Then do:
+
+    $ git push heroku master
+    .... Long ass deploy stuff
