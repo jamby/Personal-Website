@@ -42,9 +42,16 @@ body{
 	font-size: 12px;
 	line-height: 21px;
 	color: #b1b1b1;
+	overflow: auto;
+	height: 99.9%;
 }
 
 .footer{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	height: 70px;
 	padding-top: 50px;
 	width: 540px;
 	font-family: Calibri, Segoe UI, Trebuchet MS, Arial, sans-serif;
