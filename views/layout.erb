@@ -4,9 +4,31 @@
     <title>Jared Hamby // Game Programmer</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="javascripts/application.js"></script>
+    <link href="stylesheets/960.css" media="screen" rel="stylesheet" type="text/css">
     <link href="stylesheets/application.css" media="screen" rel="stylesheet" type="text/css">
   </head>
   <body>
+    <div class='container_16' style="background:red;">
+      <div class='grid_16 header'>
+        Header test
+      </div>
+      <div class='clear'>
+      </div>
+      <div class='grid_3 sidebar'>
+        Sidebar
+      </div>
+      <div class='grid_12 content'>
+        Content
+      </div>
+      <div class='clear'>
+      </div>
+      <div class='grid_16 footer'>
+        Footer
+      </div>
+      <div class='clear'>
+      </div>
+    </div>
+
     <%= erb(:header) %>
     <%= yield %>
   </body>

@@ -1,3 +1,19 @@
 body {
   background: #eee;
 }
+
+.header {
+   background: blue;
+}
+
+.sidebar {
+  background: yellow;
+}
+
+.content {
+  background: black;
+}
+
+.footer {
+  background: green;
+}
