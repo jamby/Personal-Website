@@ -10,26 +10,24 @@
   <body>
     <div class='container_16' style="background:red;">
       <div class='grid_16 header'>
-        Header test
+        <%= erb(:header) %>
       </div>
       <div class='clear'>
       </div>
       <div class='grid_3 sidebar'>
-        Sidebar
+        <%= erb(:sidebar) %>
       </div>
       <div class='grid_12 content'>
-        Content
+        <%= yield %>
       </div>
       <div class='clear'>
       </div>
       <div class='grid_16 footer'>
-        Footer
+        <%= erb(:footer) %>
       </div>
       <div class='clear'>
       </div>
     </div>
 
-    <%= erb(:header) %>
-    <%= yield %>
   </body>
 </html>
