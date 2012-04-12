@@ -24,7 +24,7 @@ body{
 }
 
 .right{
-	width: 720px;
+	width: 710px;
 	float: right;
 }
 
@@ -42,8 +42,8 @@ body{
 	font-size: 12px;
 	line-height: 21px;
 	color: #b1b1b1;
-	overflow: auto;
-	height: 99.9%;
+	overflow-y: auto;;
+	height: 70%;
 }
 
 .footer{
