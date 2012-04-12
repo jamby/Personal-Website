@@ -31,7 +31,7 @@ body{
 .header{
 	width: 720px;
 	height: 100px;
-	background-image: url(../../images/home_header.png);
+	/*background-image: url(../../images/home_header.png);*/
 	background-repeat: no-repeat;
 }
 
