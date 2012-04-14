@@ -3,28 +3,28 @@
   <head>
     <title>Jared Hamby // Game Programmer</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/application.js"></script>
+    <script src="/javascripts/application.js"></script>
     <!--<link href="stylesheets/960.css" media="screen" rel="stylesheet" type="text/css">-->
-    <link href="stylesheets/application.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css">
   </head>
   <body>
-	<div class="maincontainer">
-		<div class="left">
-			<div class="navigation">
-				<%= erb(:navigation)%>
-			</div>
-		</div>
-		<div class="right">
-			<div class="header">
-				<%= erb(:header)%>
-			</div>
-			<div class="content">
-				<%= yield %>
-			</div>
-			<div class="footer">
-				<%= erb(:footer)%>
-			</div>
-		</div>
-	</div>
+  <div class="maincontainer">
+    <div class="left">
+      <div class="navigation">
+        <%= erb(:navigation)%>
+      </div>
+    </div>
+    <div class="right">
+      <div class="header">
+        <%= erb(:header)%>
+      </div>
+      <div class="content">
+        <%= yield %>
+      </div>
+      <div class="footer">
+        <%= erb(:footer)%>
+      </div>
+    </div>
+  </div>
   </body>
 </html>
