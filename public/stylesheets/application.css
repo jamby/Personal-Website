@@ -46,6 +46,16 @@ body{
   min-height: 400px;
 }
 
+.subleft{
+	width: 240px;
+	float: left;
+}
+
+.subright{
+	width: 240px;
+	float: right;
+}
+
 .footer{
   bottom: 0;
   width: 100%;
