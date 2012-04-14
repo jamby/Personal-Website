@@ -2,20 +2,25 @@
 To view any of the projects, please click any of the links below!
 <% end %>
 <% if @action == "the_depths" %>
-  <%= erb(:the_depths) %>
+  <%= erb(:'projects/the_depths') %>
 <% end %>
 <% if @action == "polarity_shift" %>
   <%= erb(:'projects/polarity_shift') %>
 <% end %>
+<% if @action == "peg_game" %>
+  <%= erb(:'projects/peg_game') %>
+<% end %>
+
+<div class="divider"></div>
 
 <div class="subleft">
   <ul>
-    <li class="wk"><a href="/peg_game">Peg Game</a></li>
-    <li class ="wk"><a href="/projects/the_depths">The Depths</a></li>
+    <li class="wk"><a href="/projects/peg_game" class=<%="#{@action == 'peg_game' ? 'onpage':''}"%>>Peg Game</a></li>
+    <li class="wk"><a href="/projects/the_depths" class=<%="#{@action == 'the_depths' ? 'onpage':''}"%>>The Depths</a></li>
   </ul>
 </div>
 <div class="subright">
   <ul>
-    <li class ="wk"><a href="/projects/polarity_shift">Polarity Shift</a></li>
+    <li class="wk"><a href="/projects/polarity_shift" class=<%="#{@action == 'polarity_shift' ? 'onpage':''}"%>>Polarity Shift</a></li>
   </ul>
 </div>

@@ -36,7 +36,7 @@ get '/projects/the_depths' do
   erb :projects
 end
 
-get '/proejcts/peg_game' do
+get '/projects/peg_game' do
   @action = 'peg_game'
   erb :projects
 end
