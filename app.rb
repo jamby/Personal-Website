@@ -26,6 +26,11 @@ get '/contact' do
   erb :contact
 end
 
+get '/projects/peg_game' do
+  @action = 'peg_game'
+  erb :projects
+end
+
 get '/projects/polarity_shift' do
   @action = 'polarity_shift'
   erb :projects
@@ -33,10 +38,5 @@ end
 
 get '/projects/the_depths' do
   @action = 'the_depths'
-  erb :projects
-end
-
-get '/projects/peg_game' do
-  @action = 'peg_game'
   erb :projects
 end
