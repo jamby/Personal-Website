@@ -48,11 +48,13 @@ body{
 .subleft{
 	width: 240px;
 	float: left;
+	text-align: center;
 }
 
 .subright{
 	width: 240px;
 	float: right;
+	text-align: center;
 }
 
 .footer{
