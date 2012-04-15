@@ -13,7 +13,7 @@ body{
 .maincontainer{
   width: 890px;
   margin: 0 auto;
-  min-height: 400px;
+  min-height: 500px;
 }
 
 .left{
@@ -42,8 +42,7 @@ body{
   font-size: 12px;
   line-height: 21px;
   color: #b1b1b1;
-  overflow-y: auto;;
-  min-height: 400px;
+  min-height: 500px;
 }
 
 .subleft{
@@ -200,4 +199,8 @@ IMG.leftside{
 IMG.rightside{
 	float: right;
 	margin-left: 10px;
+}
+
+.youtube{
+	text-align: center;
 }

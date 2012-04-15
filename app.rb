@@ -40,3 +40,8 @@ get '/projects/the_depths' do
   @action = 'the_depths'
   erb :projects
 end
+
+get '/projects/8bitironman' do
+  @action = '8bitironman'
+  erb :projects
+end

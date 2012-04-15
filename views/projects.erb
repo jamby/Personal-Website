@@ -10,6 +10,9 @@ To view any of the projects, please click any of the links below!
 <% if @action == "peg_game" %>
   <%= erb(:'projects/peg_game') %>
 <% end %>
+<% if @action == "8bitironman" %>
+  <%= erb(:'projects/8bitironman') %>
+<% end %>
 
 <div class="divider"></div>
 
@@ -22,5 +25,6 @@ To view any of the projects, please click any of the links below!
 <div class="subright">
   <ul>
     <li class="wk"><a href="/projects/polarity_shift" class=<%="#{@action == 'polarity_shift' ? 'onpage':''}"%>>Polarity Shift</a></li>
+	<li class="wk"><a href="/projects/8bitironman" class=<%="#{@action == '8bitironman' ? 'onpage':''}"%>>8Bit Iron Man</a></li>
   </ul>
 </div>
