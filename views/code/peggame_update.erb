@@ -1,0 +1,58 @@
+<img class="displayed" src="../../../images/proj_depths.png">
+<p></p>
+<p>This is my GamePiece's update for my Peg Game. The point of it is to check if the GamePiece itself is chosen and then check every single jump spot of the GamePiece's current spot.</p>
+<p>When it's looping through the jump spots, it's checking to see if the tip of the GamePiece is inside of the jump spot's hole. If that comes back as false, the GamePiece will just go back to it's original spot and reorder itself it looks like it's inside of the hole. This is done in the at the bottom once it checks if all the spots are done, the GamePiece will just reset all of its positions.</p>
+<p>If it comes back as true, however, it'll check the adjacent spot that is connected to the jump spot to see if it has a piece in it. If the adjacent spot has a piece and the jump spot doesn't, it'll put the GamePiece into the new spot and will set the adjacent spot's GamePiece to be removed. If the adjacent spot has no GamePiece in it or the jump spot doesn't have a GamePiece, it'll just return false and continue on through the rest of the program.</p>
+<p></p>
+<pre>
+void GamePiece::update(ccTime dt)
+{
+	if(m_bIsChosen == true)
+	{
+		bool bAllSpotsDone = false;
+		for(int i = 0; i < m_gsCurrentSpot->GetJumpSpots().size(); i++)
+		{
+			// Check to see if the Peg's in a new spot's circle
+			if(PointInCircle(getPosition(), m_gsCurrentSpot->GetJumpSpots()[i]->GetCirclePoint(), 
+							 m_gsCurrentSpot->GetJumpSpots()[i]->GetRadius()) == true)
+			{
+				// If it's true, check the specific connector to see if it has a peg in the Adjacent Spot, but not the Jump Spot
+				if(m_gsCurrentSpot->CheckConnectors(i) == true)
+				{
+					// If that spot comes back as true, search through the Game Layer's pieces to get rid of
+					// that specific Peg from the GamePieces and add it to the UsedPieces
+					for(int j = 0; j < m_pGameLayer->GetGamePieces().size(); j++)
+					{
+						if(m_pGameLayer->GetGamePieces()[j] == m_gsCurrentSpot->GetAdjacentSpots()[i]->GetGamePiece())
+						{
+							m_pGameLayer->SetRemovingPiece(j);
+							m_pGameLayer->SetBoolRemovingPiece(true);
+							break;
+						}
+					}
+					// PreviousSpot needs to not be the GamePiece's CurrentSpot
+					SetPreviousSpot(m_gsCurrentSpot);
+					m_gsPreviousSpot->SetGamePiece(NULL);
+					SetCurrentSpot(m_gsCurrentSpot->GetJumpSpots()[i]);
+					m_gsCurrentSpot->SetGamePiece(this);
+					// Set all the positions and reorder the child
+					SetAllPositions(m_gsCurrentSpot->GetPegTip());
+					m_pGameLayer->reorderChild(this, m_gsCurrentSpot->GetZOrder());
+					break;
+				}
+			}
+
+			if(i == m_gsCurrentSpot->GetJumpSpots().size()-1)
+				bAllSpotsDone = true;
+		}
+		
+		if(bAllSpotsDone == true)
+		{
+			SetAllPositions(m_gsCurrentSpot->GetPegTip());
+			m_pGameLayer->reorderChild(this, m_gsCurrentSpot->GetZOrder());
+		}
+			
+		m_bIsChosen = false;
+	}
+}
+</pre>

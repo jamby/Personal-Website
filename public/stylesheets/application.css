@@ -210,9 +210,9 @@ IMG.rightside{
 pre {
 	margin-left: auto;
 	margin-right: auto;
-	width: 75%;
+	width: 85%;
 	overflow: auto;
-	max-height: 500px;
+	max-height: 350px;
 	background-color: #b1b1b1;
 	color: #252525;
 	/*white-space: pre-wrap;       /* css-3 */

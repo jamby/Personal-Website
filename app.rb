@@ -45,3 +45,8 @@ get '/projects/8bitironman' do
   @action = '8bitironman'
   erb :projects
 end
+
+get '/code/peggame_update' do
+  @action = 'peggame_update'
+  erb :code
+end
