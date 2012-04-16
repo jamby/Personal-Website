@@ -1,0 +1,63 @@
+<img class="displayed" src="../../../images/code_animload.png">
+<p></p>
+<p>To get the animation information, Polarity Shift would load an animation file to get all that information to make the animation possible.</p>
+<p>It would first read in the amount of animations. After specifying the total amount, it would read in characters to add to a name. It will then read in the animation time along with the frame timer.</p>
+<p>Then it needs all of the frames for that particular animation. It will read in the number of frames and then it will make an array of those frames. Then there is a for-loop to read in the different rects and points needed to make the animation work. Four points for both the source of the image, four points for the collision, and two points for the anchor point that the animations will be playing from.</p>
+<pre>
+void CAnimationEngine::Load(const char *szFileName)
+{
+	std::ifstream fin;
+	fin.open(szFileName, std::ios::binary | std::ios::in);
+	char szCharacter = ' ';
+	char szCharacter2 = ' ';
+	int anacount = 0;
+	fin.read((char*)&anacount, sizeof(int));
+	for(int i = 0; i < anacount; i++)
+	{
+		char random;
+		fin.read(&random, sizeof(char));
+		fin.read(&szCharacter, sizeof(char));
+		string szName;
+		
+		while (szCharacter != '\n')
+		{
+			szName += szCharacter;
+			fin.read(&szCharacter, sizeof(char));
+		}
+		
+		// Animation timer
+		double dAnimTemp = 0;
+		fin.read((char*)&dAnimTemp, sizeof(double));
+		//Frame timer
+		double dFrameTemp;
+		fin.read((char*)&dFrameTemp, sizeof(double));
+
+		// Number of frames
+		fin.read((char*)&m_nNumFrames, sizeof(int));
+		// Makes the frames
+		m_pFrames = new tFrame[m_nNumFrames];
+
+		for (int i = 0; i < m_nNumFrames; i++)
+		{
+			// Frame rectangle
+			fin.read((char*)&m_pFrames[i].rSource.left, sizeof(int));
+			fin.read((char*)&m_pFrames[i].rSource.top, sizeof(int));
+			fin.read((char*)&m_pFrames[i].rSource.right, sizeof(int));
+			fin.read((char*)&m_pFrames[i].rSource.bottom, sizeof(int));
+				
+			// Anchor point
+			fin.read((char*)&m_pFrames[i].pAnchor.x, sizeof(int));
+			fin.read((char*)&m_pFrames[i].pAnchor.y, sizeof(int));
+
+			// Collision rectangle
+			fin.read((char*)&m_pFrames[i].rCollision.left, sizeof(int));
+			fin.read((char*)&m_pFrames[i].rCollision.top, sizeof(int));
+			fin.read((char*)&m_pFrames[i].rCollision.right, sizeof(int));
+			fin.read((char*)&m_pFrames[i].rCollision.bottom, sizeof(int));
+		}
+	}
+
+	fin.close();
+	m_bIsLooping = true;
+}
+</pre>

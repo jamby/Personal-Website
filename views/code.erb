@@ -4,18 +4,31 @@ To view any of the sample code, please click any of the links below!
 <% if @action == "peggame_update" %>
   <%= erb(:'code/peggame_update') %>
 <% end %>
+<% if @action == "polarityshift_animload" %>
+  <%= erb(:'code/polarityshift_animload') %>
+<% end %>
+<% if @action == "polarityshift_animupdate" %>
+  <%= erb(:'code/polarityshift_animupdate') %>
+<% end %>
+<% if @action == "depths_importer" %>
+  <%= erb(:'code/depths_importer') %>
+<% end %>
+<% if @action == "depths_levelsystemload" %>
+  <%= erb(:'code/depths_levelsystemload') %>
+<% end %>
 
 <div class="divider"></div>
 
 <div class="subleft">
   <ul>
-    <li class="wk"><a href="/code/peggame_update" class=<%="#{@action == 'peggame_update' ? 'onpage':''}"%>>Peg Game Piece's Update</a></li>
-    <li class="wk"><a href="/code/testtest3" class=<%="#{@action == 'testtest3' ? 'onpage':''}"%>>Test test 3</a></li>
+    <li class="wk"><a href="/code/peggame_update" class=<%="#{@action == 'peggame_update' ? 'onpage':''}"%>>Peg Game - GamePiece Update</a></li>
+    <li class="wk"><a href="/code/polarityshift_animload" class=<%="#{@action == 'polarityshift_animload' ? 'onpage':''}"%>>Polarity Shift - Animation Load</a></li>
+    <li class="wk"><a href="/code/polarityshift_animupdate" class=<%="#{@action == 'polarityshift_animupdate' ? 'onpage':''}"%>>Polarity Shift - Animation Update</a></li>
   </ul>
 </div>
 <div class="subright">
   <ul>
-    <li class="wk"><a href="/code/testtest" class=<%="#{@action == 'testtest' ? 'onpage':''}"%>>Test test</a></li>
-	<li class="wk"><a href="/code/testtest4" class=<%="#{@action == 'testtest4' ? 'onpage':''}"%>>Test test 4</a></li>
+    <li class="wk"><a href="/code/depths_importer" class=<%="#{@action == 'depths_importer' ? 'onpage':''}"%>>The Depths - Importer</a></li>
+	<li class="wk"><a href="/code/depths_levelsystemload" class=<%="#{@action == 'depths_levelsystemload' ? 'onpage':''}"%>>The Depths - LevelSystem LoadMeshes</a></li>
   </ul>
 </div>

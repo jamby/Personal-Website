@@ -1,0 +1,100 @@
+<img class="displayed" src="../../../images/code_dloadmeshes.png">
+<p></p>
+<p>This was for The Depth's actual level system. It would take all the information received from the Importer and would actually make all of the meshes.</p>
+<p>This particular function was called after the level number was set so the game could have all of the information needed after switching levels.</p>
+<p>Since all of the information is already in variables from the Importer, it just uses that to get what it needs. It takes the number of models per mesh and just adds it to a grand total and then resizes the large vector of level models that is used for the BVH and such.</p>
+<p>After loading all of the textures (if any needed to be loaded), it would then do two for-loops because of the number of models per mesh. In every different type of mesh, it would continuously add each of the models to the vector.</p>
+<p>Then would come the actual making of the game objects. This would comprise of making the model and then setting the transformations to that particular model. Since all of the same models were made contiguous in the Importer, it doesn't matter if that model wasn't technically in the position it was meant to be in, they were all the same and can be put with their transformations in a particular place.</p>
+<p>This would load all of the models into the game with a referenced mesh.</p>
+<pre>
+void CLevelSystem::LoadMeshes()
+{
+
+	pcManager = ConstellationCore::GetInstance()->GetSceneManager();
+
+	// Find out the max number of models in the scene.
+	int nTotalNumModels = 0;
+	for (unsigned i = 0 ; i < m_vNumModelsPerMesh.size() ; ++i)
+	{
+		nTotalNumModels += m_vNumModelsPerMesh[i];
+	}
+
+	// Resize the level models to the total number of models.
+	m_vLevelModels.resize(nTotalNumModels);
+
+	// Apply the materials to the meshes accordingly.
+	LoadTextures();
+	// Make all of the models in the scene.
+	int theTotal = 0;
+
+	// Loop through i's number of models for that mesh.
+	for (unsigned i = 0 ; i < m_vNumModelsPerMesh.size() ; ++i)
+	{
+		// Loop through the number received from i.
+		for (signed j = 0 ; j < m_vNumModelsPerMesh[i] ; ++j)
+		{
+			char szName[64];
+			std::string tempString = m_vMeshes[i]->GetName();
+			sprintf_s(szName, sizeof(szName), "%i\0", j);
+			tempString += szName;
+			// Create a model with its own string, the mesh and the material.
+			m_vLevelModels[theTotal] = m_pcGraphics->CreateModel(tempString, m_vMeshes[i], m_vMaterials[i]);
+
+			// Apply the shader constants do the models.
+			{
+				m_vLevelModels[theTotal]->AddCustomFloat(CFloatConstant("fSpecularPower", 32.0f));
+				m_pShininessConsts.push_back(&m_vLevelModels[theTotal]->GetCustomFloat("fSpecularPower"));
+				m_vLevelModels[theTotal]->AddCustomVector4(CVector4Constant("fLightPos", TVector4(0, 0, -1, 1)));
+				m_pLightPosConsts.push_back(&m_vLevelModels[theTotal]->GetCustomVector4("fLightPos"));
+			}
+
+			theTotal++;
+		}
+	}	
+
+	// Resize the level objects and scene nodes.
+	m_vLevelObjects.resize(m_vLevelModels.size());
+	m_vSceneNodes.resize(m_vLevelObjects.size());
+	for (unsigned i = 0 ; i < m_vLevelObjects.size() ; ++i)
+	{
+		// Temporary variables for matrix math.
+		TMatrix4 transform;
+		TMatrix4 translate;
+		TMatrix4 scale;
+		TMatrix4 rotate;
+
+		TMatrix4 rotX;
+		TMatrix4 rotY;
+		TMatrix4 rotZ;
+
+		// Make a new CGameObject to be put into m_vLevelObjects.
+		m_vLevelObjects[i] = new CGameObject;
+		m_vLevelObjects[i]->SetModel(m_vLevelModels[i]);
+
+		// Place the model in the world
+		// Apply scaling to the temporary scale matrix.
+		M4Scaling(&scale, m_vModelScale[i].x, m_vModelScale[i].y, m_vModelScale[i].z);
+		// Apply rotation to the temporary rotation matrix.
+		rotX.MakeRotationX(m_vModelRotate[i].x);
+		rotY.MakeRotationY(m_vModelRotate[i].y);
+		rotZ.MakeRotationZ(m_vModelRotate[i].z);
+		rotate = rotX * rotY * rotZ;
+		// Apply translation to the temporary translation matrix.
+		M4Translation(&translate, m_vModelTranslate[i].x, m_vModelTranslate[i].y, m_vModelTranslate[i].z);
+		// Multiply the scaling and rotation matrices into the transformation matrix.
+		M4Multiply(&transform, &scale, &rotate);
+		// Multiply the transformation and translation matrices into the transformation matrix.
+		M4Multiply(&transform, &transform, &translate);
+
+		// Apply the model's position to the model and scene nodes.
+		m_vSceneNodes[i] = pcManager->CreateSceneNode();
+		m_vLevelObjects[i]->LinkToSceneNode(m_vSceneNodes[i]);
+		pcManager->GetRoot()->AddChild(m_vSceneNodes[i]);
+
+		TMatrix4 nodeMat3 = m_vSceneNodes[i]->GetLocalTransform();
+		nodeMat3 *= transform;
+		m_vSceneNodes[i]->SetLocalTransform(nodeMat3);
+		m_vSceneNodes[i]->SetWorldTransform((TMatrix4)m_vLevelObjects[i]->GetWorldTransform());
+	}
+}
+</pre>
