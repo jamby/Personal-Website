@@ -72,12 +72,13 @@ get '/code/depths_levelsystemload' do
   erb :code
 end
 
-post '/email_me' do
+post '/contact' do
   puts params.inspect
   puts params[:email]
   puts params[:first_name]
-  Pony.mail(:to => 'irjamby@gmail.com', :from => params[:email], :subject => "Email from #{params[:name]}", :body => params[:comments])
-  @action = 'email_me'
+  puts params[:last_name]
+  Pony.mail(:to => 'irjamby@gmail.com', :from => params[:email], :subject => "Email from #{params[:first_name]}#{params[:last_name]}", :body => params[:comments])
+  @action = 'contact'
   @alert = "I have been notified. Thank you."
   erb :contact
 end
