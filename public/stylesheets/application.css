@@ -222,3 +222,53 @@ pre {
 	/*white-space: -o-pre-wrap;    /* Opera 7 */
 	/*word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
+
+fieldset{
+	border-style: solid;
+	border-color: #b1b1b1;
+	width: 325px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+legend{
+	padding-right: 7px;
+	padding-left: 7px;
+	font-weight: bold;
+	color: #cd661d;
+}
+
+label{
+	color: #b1b1b1;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+input[type="text"]{
+	float: right;
+	background-color: #b1b1b1;
+	padding-left: 2px;
+	font-family: Calibri, Segoe UI, Trebuchet MS, Arial, sans-serif;
+	font-size: 12px;
+	border-style: none;
+	border-color: black;
+	border-width: 1px;
+}
+
+textarea[type="comments"]{
+	float: right;
+	background-color: #b1b1b1;
+	resize: vertical;
+	font-family: Calibri, Segoe UI, Trebuchet MS, Arial, sans-serif;
+	font-size: 12px;
+	border-style: none;
+	border-color: black;
+	border-width: 1px;
+}
+
+input[type="image"]{
+	float: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}

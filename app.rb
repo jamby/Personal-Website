@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'sinatra'
+require 'pony'
 
 get '/' do
   @action = 'index'
@@ -69,4 +70,8 @@ end
 get '/code/depths_levelsystemload' do
   @action = 'depths_levelsystemload'
   erb :code
+end
+
+post 'email_me' do
+  Pony.mail(:to => 'irjamby@gmail.com', :from => params[:email], :subject => "Email from #{params[:name]}", :body => params[:body])
 end

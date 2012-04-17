@@ -29,3 +29,4 @@ PLATFORMS
 DEPENDENCIES
   heroku
   sinatra
+  pony
