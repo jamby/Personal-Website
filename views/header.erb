@@ -4,12 +4,12 @@
 <% if @action == 'about' %>
   <div class='header' style='background-image: url(../../images/head_about.png);'></div>
 <% end %>
-<% if @action == 'projects' || @action == 'peg_game' || @action == 'polarity_shift' || @action == 'the_depths' || @action == '8bitironman' %>
+<% if ['projects', 'peg_game', 'polarity_shift', 'the_depths', '8bitironman'].include?(@action)%>
   <div class='header' style='background-image: url(../../images/head_projects.png);'></div>
 <% end %>
-<% if @action == 'code' || @action == 'peggame_update' || @action == 'polarityshift_animload' || @action == 'polarityshift_animupdate' || @action == 'depths_importer' || @action == 'depths_levelsystemload' %>
+<% if ['code', 'peggame_update', 'polarityshift_animload', 'polarityshift_animupdate', 'depths_importer', 'depths_levelsystemload'].include?(@action) %>
   <div class='header' style='background-image: url(../../images/head_code.png);'></div>
 <% end %>
-<% if @action == 'contact' %>
+<% if ['contact', 'email_me'].include?(@action) %>
   <div class='header' style='background-image: url(../../images/head_contact.png);'></div>
 <% end %>
