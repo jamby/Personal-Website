@@ -259,6 +259,7 @@ textarea[type="comments"]{
 	float: right;
 	background-color: #b1b1b1;
 	resize: vertical;
+	overflow: auto;
 	font-family: Calibri, Segoe UI, Trebuchet MS, Arial, sans-serif;
 	font-size: 12px;
 	border-style: none;
@@ -269,6 +270,4 @@ textarea[type="comments"]{
 input[type="image"]{
 	float: center;
 	display: block;
-	margin-left: auto;
-	margin-right: auto;
 }
