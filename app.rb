@@ -80,24 +80,28 @@ post '/contact' do
   #puts params[:email]
   #puts params[:first_name]
   #puts params[:last_name]
-  Pony.mail(:to => 'irjamby@gmail.com',
-    :from => "#{params[:first_name]} #{params[:last_name]} <#{params[:email]}>",
-    :subject => "Email from #{params[:first_name]} #{params[:last_name]} (#{params[:email]})",
-    :body => params[:comments],
-    :port => '587',
-    :via => :smtp,
-    :via_options => {
-      :address => "smtp.sendgrid.net",
+  if /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/.match(params[:email])
+    Pony.mail(:to => 'irjamby@gmail.com',
+      :from => "#{params[:first_name]} #{params[:last_name]} <#{params[:email]}>",
+      :subject => "Email from #{params[:first_name]} #{params[:last_name]} (#{params[:email]})",
+      :body => params[:comments],
       :port => '587',
-      :enable_starttls_auto => true,
-      :user_name => ENV['SENDGRID_USERNAME'],
-      :password => ENV['SENDGRID_PASSWORD'],
-      :authentication => :plain,
-      :domain => ENV['SENDGRID_DOMAIN']
-    }
-  )
+      :via => :smtp,
+      :via_options => {
+        :address => "smtp.sendgrid.net",
+        :port => '587',
+        :enable_starttls_auto => true,
+        :user_name => ENV['SENDGRID_USERNAME'],
+        :password => ENV['SENDGRID_PASSWORD'],
+        :authentication => :plain,
+        :domain => ENV['SENDGRID_DOMAIN']
+      }
+    )
+    @alert = "I have been notified. Thank you."
+  else
+    @error = "Email is not valid."
+  end
   #puts "Email from " + "#{params[:first_name]} #{params[:last_name]}"
   @action = 'contact'
-  @alert = "I have been notified. Thank you."
   erb :contact
 end

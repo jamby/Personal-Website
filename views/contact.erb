@@ -5,6 +5,7 @@ My resume is also readily available <b>here</b> or you can click the image of it
 <form name="htmlform" method="post" action="contact">
   <fieldset>
     <legend>Contact Information</legend>
+    <center><div class='errors'><%= @error %></div></center>
     <label for="first_name">First Name *</label>
     <input type="text" name="first_name" value="" size="30" maxlength="50" />
     <br />
