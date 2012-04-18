@@ -2,7 +2,7 @@ require 'rubygems'
 require 'sinatra'
 require 'pony'
 require 'yaml'
-yaml_file = YAML.load_file("./config/config.yml")["mailer"]
+# yaml_file = YAML.load_file("./config/config.yml")["mailer"]
 
 get '/' do
   @action = 'index'
@@ -80,9 +80,9 @@ post '/contact' do
   #puts params[:email]
   #puts params[:first_name]
   #puts params[:last_name]
-  Pony.mail(:to => 'irjamby@gmail.com', 
-    :from => "#{params[:first_name]} #{params[:last_name]} <#{params[:email]}>", 
-    :subject => "Email from #{params[:first_name]} #{params[:last_name]} (#{params[:email]})", 
+  Pony.mail(:to => 'irjamby@gmail.com',
+    :from => "#{params[:first_name]} #{params[:last_name]} <#{params[:email]}>",
+    :subject => "Email from #{params[:first_name]} #{params[:last_name]} (#{params[:email]})",
     :body => params[:comments],
     :port => '587',
     :via => :smtp,
