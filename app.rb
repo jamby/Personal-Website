@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'sinatra'
 require 'pony'
+require 'yaml'
+yaml_file = YAML.load_file("./config/config.yml")[:mailer]
 
 get '/' do
   @action = 'index'
@@ -73,12 +75,13 @@ get '/code/depths_levelsystemload' do
 end
 
 post '/contact' do
-  puts params.inspect
-  puts params[:email]
-  puts params[:first_name]
-  puts params[:last_name]
-  Pony.mail(:to => 'irjamby@gmail.com', :from => params[:email], :subject => "Email from " + "#{params[:first_name]} #{params[:last_name]}", :body => params[:comments])
-  puts "Email from " + "#{params[:first_name]} #{params[:last_name]}"
+  puts yaml_file[:username]
+  #puts params.inspect
+  #puts params[:email]
+  #puts params[:first_name]
+  #puts params[:last_name]
+  #Pony.mail(:to => 'irjamby@gmail.com', :from => params[:email], :subject => "Email from " + "#{params[:first_name]} #{params[:last_name]}", :body => params[:comments])
+  #puts "Email from " + "#{params[:first_name]} #{params[:last_name]}"
   @action = 'contact'
   @alert = "I have been notified. Thank you."
   erb :contact
