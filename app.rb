@@ -77,7 +77,8 @@ post '/contact' do
   puts params[:email]
   puts params[:first_name]
   puts params[:last_name]
-  Pony.mail(:to => 'irjamby@gmail.com', :from => params[:email], :subject => "Email from #{params[:first_name]}#{params[:last_name]}", :body => params[:comments])
+  Pony.mail(:to => 'irjamby@gmail.com', :from => params[:email], :subject => "Email from " + "#{params[:first_name]} #{params[:last_name]}", :body => params[:comments])
+  puts "Email from " + "#{params[:first_name]} #{params[:last_name]}"
   @action = 'contact'
   @alert = "I have been notified. Thank you."
   erb :contact
