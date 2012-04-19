@@ -260,12 +260,12 @@ legend{
 }
 
 label{
-  color: #b1b1b1;
-  padding-top: 3px;
-  padding-bottom: 3px;
+	color: #b1b1b1;
+	padding-top: 3px;
+	padding-bottom: 3px;
 }
 
-input[type="text"]{
+input.text{
   float: right;
   background-color: #b1b1b1;
   padding-left: 2px;
@@ -276,19 +276,20 @@ input[type="text"]{
   border-width: 1px;
 }
 
-textarea[type="comments"]{
-  float: right;
-  background-color: #b1b1b1;
-  resize: vertical;
-  overflow: auto;
-  font-family: Calibri, Segoe UI, Trebuchet MS, Arial, sans-serif;
-  font-size: 12px;
-  border-style: none;
-  border-color: black;
-  border-width: 1px;
+textarea.comments{
+	float: right;
+	background-color: #b1b1b1;
+	resize: vertical;
+	overflow: auto;
+	font-family: Calibri, Segoe UI, Trebuchet MS, Arial, sans-serif;
+	font-size: 12px;
+	border-style: none;
+	border-color: black;
+	border-width: 1px;
 }
 
-input[type="image"]{
-  display: block;
-  margin: 0 auto;
+input.image{
+	clear: both;
+	display: block;
+	margin: 0 auto;
 }
