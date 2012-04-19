@@ -279,6 +279,6 @@ textarea[type="comments"]{
 }
 
 input[type="image"]{
-  float: center;
   display: block;
+  margin: 0 auto;
 }
