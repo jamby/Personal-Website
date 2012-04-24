@@ -1,13 +1,14 @@
 @charset "utf-8";
 body{
-  background-color: #252525;
-  margin-left: 0px;
-  margin-top: 135px;
-  margin-right: 0px;
-  margin-bottom: 0px;
-  background-image: url(../../images/bg.png);
-  background-repeat: repeat-x;
-  font-family: Calibri, Segoe UI, Trebuchet MS, Arial, sans-serif;
+	background-color: #252525;
+	margin-left: 0px;
+	margin-top: 135px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url(../../images/bg.png);
+	background-repeat: repeat-x;
+	font-family: Calibri, Segoe UI, Trebuchet MS, Arial, sans-serif;
+	font-size: 11.5px;
 }
 
 .flash {
@@ -126,6 +127,26 @@ li.wk{
   font-family: Calibri, Segoe UI, Trebuchet MS, Arial, sans-serif;
   font-size: 12px;
   margin-bottom: -3px;
+}
+
+ol{
+	list-style: decimal;
+}
+
+li.install{
+	list-style: decimal;
+	font-family: Calibri, Segoe UI, Trebuchet MS, Arial, sans-serif;
+	font-size: 11.5px;
+	margin-left: 0;
+	margin-bottom: -2px;
+}
+
+li.install-note{
+	list-style: disc;
+	font-family: Calibri, Segoe UI, Trebuchet MS, Arial, sans-serif;
+	font-size: 11.5px;
+	margin-left: 0;
+	margin-bottom: -2px;
 }
 
 p{
