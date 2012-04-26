@@ -8,6 +8,7 @@ body{
 	background-image: url(../../images/bg.png);
 	background-repeat: repeat-x;
 	font-family: Calibri, Segoe UI, Trebuchet MS, Arial, sans-serif;
+	-webkit-text-size-adjust: none;
 	font-size: 11.5px;
 }
 
