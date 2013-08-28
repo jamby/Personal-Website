@@ -1,1 +1,1 @@
-rvm 1.9.2@jareds_website --create
+rvm use 1.9.3-p448@jareds_website --create

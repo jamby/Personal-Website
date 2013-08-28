@@ -1,0 +1,17 @@
+.container
+  .row
+    .col-md-4
+      .well
+        = image_tag('http://placehold.it/300x200/111/696969') 
+        / 310 is the correct width of this well!
+    .col-md-8
+      .jumbotron
+        %h1 Jared Hamby
+        %p
+          I'm a web developer from Fairfax, VA. If you want to know a little more about me, feel free to take a look at my
+          = link_to "about me", about_path
+          page.
+        %p
+          If you want to contact me, please visit my contact page for ways to contact me or just email me at 
+          %a{href: "mailto:irjamby@gmail.com"}irjamby@gmail.com
+          !

@@ -1,0 +1,112 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+/*.body-container {
+	min-height: 500px;
+}*/
+
+.jumbotron h1 {
+	color: #CD661D !important;
+}
+
+/*a {
+	color: #CD661D !important;
+}*/
+
+.dropdown .dropdown-menu .nav-header {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.nav-header {
+  display: block;
+  padding: 3px 15px;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #999999;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+/*
+ SOCIAL FOOTER LINKS
+*/
+
+.link-icon {
+	color: #c6c6c6;
+	width: 30px !important;
+	height: 30px !important;
+	display: inline-block !important;
+	text-align: center !important;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#github {
+	transition: all 200ms ease-out 0s;
+}
+
+#github:hover {
+	background-color: #000;
+	color: #fff;
+	text-decoration: none;
+}
+
+section.social > .link-icon:focus {
+	color: #c6c6c6;
+	text-decoration: none;
+}
+
+#facebook {
+	transition: all 200ms ease-out 0s;
+}
+
+#facebook:hover{
+	background-color: #3b5998;
+	color: #fff;
+	text-decoration: none;
+}
+
+#twitter {
+	transition: all 200ms ease-out 0s;
+}
+
+#twitter:hover{
+	background-color: #33ccff;
+	color: #fff;
+	text-decoration: none;
+}
+
+#google-plus {
+	transition: all 200ms ease-out 0s;
+}
+
+#google-plus:hover{
+	background-color: #c63d2d;
+	color: #fff;
+	text-decoration: none;
+}
+
+#linkedin {
+	transition: all 200ms ease-out 0s;
+}
+
+#linkedin:hover{
+	background-color: #4875b4;
+	color: #fff;
+	text-decoration: none;
+}
