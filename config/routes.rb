@@ -5,6 +5,11 @@ PersonalWebsite::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
   get '/about', to: 'home#about'
+  
+  # Work Samples
+  get '/work', to: 'work#index'
+  get '/work/agile-estimator', to: 'work#agile_estimator'
+  get '/work/creative-chatter', to: 'work#creative_chatter'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

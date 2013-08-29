@@ -5,16 +5,20 @@
     %ul.nav.navbar-nav
       %li{class: active_header_link(["home", "index"])}= link_to "Home", root_path
       %li{class: active_header_link(["home", "about"])}= link_to "About Me", about_path
-      %li.dropdown
-        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+      %li.dropdown{class: active_header_link(["work", "index"], ["work", "agile_estimator"], ["work", "creative_chatter"])}
+        %a.dropdown-toggle{:href => work_path}
           Work Samples
           %b.caret
         %ul.dropdown-menu
           %li.nav-header Web
-          %li= link_to "Something", '#'
-          %li= link_to "Something 2", '#'
+          %li= link_to "Creative Chatter", '/work/creative-chatter'
+          %li= link_to "Agile Estimator", '/work/agile-estimator'
+          %li= link_to "Elo Boost", '/work/elo-boost'
           %li.divider{role: "presentation"}
           %li.nav-header Games
-          %li= link_to "Something 3", '#'
+          %li= link_to "Peg Game", '#'
+          %li= link_to "The Depths", '#'
+          %li= link_to "Polarity Shift", '#'
+          %li= link_to "8bit Iron Man", '#'
       / %li= link_to "Work Samples", '#'
       %li= link_to "Contact Me", '#'

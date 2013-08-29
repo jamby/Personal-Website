@@ -35,14 +35,32 @@
   font-size: 11px;
   font-weight: bold;
   line-height: 20px;
-  color: #999999;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  color: #ffffff;
   text-transform: uppercase;
 }
 
 /* Dropdown on HOVER */
 ul.nav li.dropdown:hover > ul.dropdown-menu {
     display: block;    
+}
+
+.dropdown-menu {
+	color: #c6c6c6 !important;
+	background-color: #333333 !important;
+}
+
+.dropdown-menu .divider {
+	background-color: #000000 !important;
+}
+
+.dropdown-menu > li > a {
+	color: #c6c6c6 !important;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+	color: #ffffff !important;
+	background-color: #CD661D !important;
 }
 
 /*
